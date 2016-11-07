@@ -4,6 +4,7 @@ Vagrant.require_version ">= 1.6.5"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
+  config.vm.box_url = "https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/20160215.0.0/providers/virtualbox.box"
   config.vm.box_check_update = true
 
   # Ports for http, https, Express, http-server and Harp
