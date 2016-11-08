@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.forward_agent = true
 
-  config.vm.synced_folder "../", "/home/vagrant/projects"
+  config.vm.synced_folder "../", "/home/vagrant/repo"
 
   config.vm.provider "virtualbox" do |vm|
     vm.memory = 2048

@@ -4,7 +4,25 @@ sudo echo "Europe/Moscow" | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 
 sudo apt-get update -y
-sudo apt-get install -y build-essential curl git libssl-dev man xclip
+sudo apt-get install -y build-essential curl git libssl-dev man xclip libfuse-dev libcurl4-openssl-dev libxml2-dev mime-support automake libtool pkg-config unzip
+
+# Build s3fs-fuse
+mkdir -p ~/repo && cd "$_"
+git clone https://github.com/s3fs-fuse/s3fs-fuse
+cd s3fs-fuse/
+./autogen.sh
+./configure --prefix=/usr --with-openssl
+make
+sudo make install
+cd ~/repo && rm -rf ~/repo/s3fs-fuse
+
+# AWS tools
+mkdir -p ~/repo/aws && cd "$_"
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
+sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+cd ~/repo && rm -rf ~/repo/aws
+
 
 git config --global core.editor "vim" 
 
