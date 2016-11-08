@@ -42,6 +42,7 @@ npm install -g webpack
 npm install -g gulp
 npm install -g less
 npm install -g bower
+npm install -g better-npm-run
 
 mkdir -p ~/repo
 echo "cd ~/repo" >> ~/.profile
