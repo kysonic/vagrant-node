@@ -8,13 +8,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_check_update = true
 
   # Ports for http, https, Express, http-server and Harp
-	
+
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "forwarded_port", guest: 3030, host: 3030
   config.vm.network "forwarded_port", guest: 3031, host: 3031
   config.vm.network "forwarded_port", guest: 3032, host: 3032
 
   config.ssh.forward_agent = true
+
 
   config.vm.synced_folder "../", "/home/vagrant/repo", fsnotify: [:modified]
 
